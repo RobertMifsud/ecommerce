@@ -22,5 +22,5 @@ document.getElementById("snap").addEventListener("click", function ()
 {
     context.clientHeight = video.clientHeight;
     context.clientWidth = video.clientWidth;
-    context.drawImage(video, 0, 0,context.clientWidth,context.clientHeight);//320,240
+    context.drawImage(video, 0, 0,context.clientWidth,context.clientHeight); //320,240
 });
