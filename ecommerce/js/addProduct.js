@@ -17,3 +17,10 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
                 context.fillText("Camera not available", 10, 50);
             });
 }
+///////////////////////////////////////////////////////////////////////////////
+document.getElementById("snap").addEventListener("click", function ()
+{
+    context.clientHeight = video.clientHeight;
+    context.clientWidth = video.clientWidth;
+    context.drawImage(video, 0, 0,context.clientWidth,context.clientHeight);//320,240
+});

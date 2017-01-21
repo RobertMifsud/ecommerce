@@ -22,13 +22,13 @@
                     <video id="liveStream" width="100%" alt="liveo video frame" autoplay></video>
                 </div>
                 <div class="col-sm-4">
-                    <input type="image" id="snap" src="img/cameraicon.png" alt="snapshot button" >       
+                    <input type="image" id="snap" width="40%" src="img/cameraicon.png" alt="snapshot button" >       
                 </div>
                 <div class="col-sm-4">
-                <canvas id="snapShot"  alt="player saved picture" ></canvas>
+                <canvas id="snapShot" alt="player saved picture" ></canvas>
                 </div>
-                </div>	
-            </div>
+            </div>	
+        </div>
         
         <script src="./js/addProduct.js"></script>
     </body>
