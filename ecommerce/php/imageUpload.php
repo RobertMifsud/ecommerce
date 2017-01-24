@@ -1,4 +1,10 @@
 <?php
+require 'vendor\autoload.php';
+$client = new MongoDB\Client("mongodb://localhost:27017");
+$collection = $client->ecommerce->products;
+
+$result = $collection->insertOne( [ 'name' => 'zopp jaqsmek' ] );
+
 
 if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"]["error"] == UPLOAD_ERR_OK)
 {
