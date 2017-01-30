@@ -39,7 +39,7 @@ $(document).ready(function () {
     };
 
 
-    $(this).ajaxForm(options);
+   $(this).ajaxForm(options);
 
 
 
@@ -49,8 +49,6 @@ $(document).ready(function () {
         $('#submit-btn').show(); //hide submit button
         $('#loading-img').hide(); //hide submit button
         $('#progressbox').delay(1000).fadeOut(); //hide progress bar
-        // var canvas = document.getElementById('myCanvas');
-        // var context = canvas.getContext('2d');
     }
 
 //function to check file size before uploading.

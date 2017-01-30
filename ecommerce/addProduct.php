@@ -36,7 +36,7 @@
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
                 <script src="js/jquery.form.min.js"></script>
                 <form action="php/imageUpload.php" method="post" enctype="multipart/form-data" id="imageUploadForm">
-                    <input name="fileToUpload" id="fileToUpload" type="file" multiple /> 
+                    <input name="fileToUpload[]" id="fileToUpload" type="file" multiple /> 
                     Product name:<input name="productName" id="productName" type="text"/><br>
                     Product description:<input name="productDesc" id="productDesc" type="text"/><br>
                     Product category:
@@ -54,5 +54,3 @@
         <script src="js/addProduct.js"></script>
     </body>
 </html>
-
-
