@@ -20,8 +20,6 @@
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
                    
-                    $m = new MongoClient(); // connect
-                    $db = $m->selectDB("ecommerce");
                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                     <li data-target="#myCarousel" data-slide-to="1"></li>
                     <li data-target="#myCarousel" data-slide-to="2"></li>
@@ -62,6 +60,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <h3>Column 1</h3>
+                    <a href="./addProduct.php">add product</a>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
                     <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
                 </div>

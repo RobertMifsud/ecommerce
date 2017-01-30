@@ -1,8 +1,9 @@
 var snapShot = document.getElementById('snapShot');
 var context = snapShot.getContext('2d');
 var video = document.getElementById('liveStream');
+var URL;
 context.fillText("-N/a-", 10, 100);
-
+document.getElementById("fileToUpload").addEventListener("change", onFileSelected);
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
 {
     navigator.getUserMedia({video: true},
@@ -30,16 +31,16 @@ $(document).ready(function () {
         beforeSubmit: beforeSubmit, // pre-submit callback 
         success: afterSuccess, // post-submit callback 
         uploadProgress: OnProgress, //upload progress callback 
+        error: function (exception) {
+            alert('Exeption:' + exception);
+        }
+        ,
         resetForm: true        // reset the form after successful submit 
     };
 
-    $('#imageUploadForm').submit(function ()
-    {
 
-        $(this).ajaxSubmit(options);
-        // always return false to prevent standard browser submit and page navigation 
-        return false;
-    });
+    $(this).ajaxForm(options);
+
 
 
 //function after succesful file upload (when server response)
@@ -61,43 +62,37 @@ $(document).ready(function () {
             if (!$('#fileToUpload').val()) //check empty input filed
             {
                 $("#output").html("Empty file");
-                return false
+                return false;
             }
-
-            var fsize = $('#fileToUpload')[0].files[0].size; //get file size
-            var ftype = $('#fileToUpload')[0].files[0].type; // get file type
-
-
-            //allow file types 
-            switch (ftype)
+            for (i = 0; i < $('#fileToUpload')[0].files.length; i++)
             {
-                case 'image/png':
-                case 'image/jpeg':
-                case 'image/bmp':
-                    break;
-                default:
-                    $("#output").html("<b>" + ftype + "</b> Unsupported file type!");
-                    return false
+                var fsize = $('#fileToUpload')[0].files[i].size; //get file size
+                var ftype = $('#fileToUpload')[0].files[i].type; // get file type
+
+
+                //allow file types 
+                switch (ftype)
+                {
+                    case 'image/png':
+                    case 'image/jpeg':
+                    case 'image/bmp':
+                        break;
+                    default:
+                        $("#output").html("<b>" + ftype + "</b> Unsupported file type!");
+                        return false;
+                }
+
+                //Allowed file size is less than 5 MB (1048576)
+                if (fsize > 5242880)
+                {
+                    $("#output").html("<b>" + bytesToSize(fsize) + "</b> Too big file! <br />File is too big, it should be less than 5 MB.");
+                    return false;
+                }
+
+                $('#submit-btn').hide(); //hide submit button
+                $('#loading-img').show(); //hide submit button
+                $("#output").html("");
             }
-
-            //Allowed file size is less than 5 MB (1048576)
-            if (fsize > 5242880)
-            {
-                $("#output").html("<b>" + bytesToSize(fsize) + "</b> Too big file! <br />File is too big, it should be less than 5 MB.");
-                return false
-            }
-
-            $('#submit-btn').hide(); //hide submit button
-            $('#loading-img').show(); //hide submit button
-            $("#output").html("");
-
-
-            var imageObj = new Image();
-
-            imageObj.onload = function () {
-                context.drawImage(imageObj);
-            };
-            imageObj.src = URL.createObjectURL(document.forms['#imageUploadForm']['#fileToUpload'].files[0]);
         } else
         {
             //Output error to older unsupported browsers that doesn't support HTML5 File API
@@ -111,7 +106,7 @@ $(document).ready(function () {
     {
         //Progress bar
         $('#progressbox').show();
-        $('#progressbar').width(percentComplete + '%') //update progressbar percent complete
+        $('#progressbar').width(percentComplete + '%'); //update progressbar percent complete
         $('#statustxt').html(percentComplete + '%'); //update status text
         if (percentComplete > 50)
         {
@@ -122,20 +117,21 @@ $(document).ready(function () {
 //function to format bites bit.ly/19yoIPO
     function bytesToSize(bytes) {
         var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-        if (bytes == 0)
+        if (bytes === 0)
             return '0 Bytes';
         var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
         return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
     }
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+
 
 });
-///////////////////////////////////////////////////////////////////////////////////////////////
 function onFileSelected(e) {
 
     var img = new Image;
     context.drawImage(img, 0, 0);
     img.onload = function () {
         context.drawImage(img, 0, 0);
-    }
-    img.src = URL.createObjectURL(e.files[0]);
+    };
+    img.src = URL.createObjectURL(e.target.files[0]);
 }

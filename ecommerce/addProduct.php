@@ -33,13 +33,14 @@
             <div class="col-sm-4">
             </div>
             <div class="col-sm-8">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+                <script src="js/jquery.form.min.js"></script>
                 <form action="php/imageUpload.php" method="post" enctype="multipart/form-data" id="imageUploadForm">
-                    <input name="fileToUpload" id="fileToUpload" type="file" onchange="onFileSelected(this)" />
+                    <input name="fileToUpload" id="fileToUpload" type="file" multiple /> 
                     Product name:<input name="productName" id="productName" type="text"/><br>
                     Product description:<input name="productDesc" id="productDesc" type="text"/><br>
                     Product category:
                     <select name = "productCategory" id="productCategory">
-                            
                     </select></br>
                     Price:<input type="productPrice" id="productPrice" value="0.0"></br>
                     <input type="submit"  id="submit-btn" value="Upload" />
@@ -49,8 +50,7 @@
             </div>
         </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="/js/jquery.form.min.js"></script>
+        
         <script src="js/addProduct.js"></script>
     </body>
 </html>
