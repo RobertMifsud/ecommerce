@@ -15,15 +15,15 @@
             <h1>Sign Up</h1>
         </div>
 
-        <div class ="row">
+        <div class ="row margin-bottom-100">
             <div class="col-sm-2">
             </div>
-            <div class="col-sm-8 wholeForm">
-                <h1>Account Login</h1>
+            <div class="col-sm-8 border-sides">
+                <h1 class="heading-margin-left">Account Login</h1>
                 
                 <div class="row">
                     <div class="col-sm-6">
-                        <div class="formBorderExisting">
+                        <div class="border padding-20">
                             <h2>Sign In</h2>
                                 <form>
                                     <div class="form-group">
@@ -39,8 +39,8 @@
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <div class="formBorderExisting">
-                        <h2>Register:</h1>
+                        <div class="border padding-20">
+                        <h2>Register</h1>
                             <form>
                                 <div class="form-group">
                                     <label for="Name">Name</label>
