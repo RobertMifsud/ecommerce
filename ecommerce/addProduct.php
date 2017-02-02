@@ -36,21 +36,50 @@
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
                 <script src="js/jquery.form.min.js"></script>
                 <form action="php/imageUpload.php" method="post" enctype="multipart/form-data" id="imageUploadForm">
-                    <input name="fileToUpload[]" id="fileToUpload" type="file" multiple /> 
-                    Product name:<input name="productName" id="productName" type="text"/><br>
-                    Product description:<input name="productDesc" id="productDesc" type="text"/><br>
-                    Product category:
-                    <select name = "productCategory" id="productCategory">
-                    </select></br>
-                    Price:<input type="productPrice" id="productPrice" value="0.0"></br>
-                    <input type="submit"  id="submit-btn" value="Upload" />
+                    <div class="form-group">
+                        <label for="exampleInputFile">Product Images</label>
+                        <input type="file" class="form-control-file" name="fileToUpload[]" id="fileToUpload" aria-describedby="fileHelp" multiple>
+                        <small id="fileHelp" class="form-text text-muted">Supported image formats are png,jpg,gif and bmp</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="productName">Product Name:</label>
+                        <input name="productName" class="form-control" id="productName" type="text"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productDesc">Product description:</label>
+                        <textarea class="form-control" name="productDesc" id="productDesc" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="productCategory">Product Category:</label>
+                        <select multiple class="form-control" id="productCategory" name="productCategory">
+                            <option>Flowers</option>
+                            <option>Fruit</option>
+                            <option>Cactus</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-sm-2">
+                            <label for="productPrice">Product Price:</label>
+                            <input name="productPrice" class="form-control"  id="productPrice" value="0.0" type="number"step="0.01">
+                            
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <input type="submit" class="btn btn-primary" id="submit-btn" value="Upload" >
+                        </div>
+                    </div>
                 </form>
-                <div id="progressbox" ><div id="progressbar"></div ><div id="statustxt">0%</div></div>
-                <div id="output"></div>
+                <div class ="row">
+                    <div class="col-sm-2">
+                        <div id="progressbox" ><div id="progressbar"></div ><div id="statustxt">0%</div></div>
+                        <div id="output"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        
+
         <script src="js/addProduct.js"></script>
     </body>
 </html>

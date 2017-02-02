@@ -11,17 +11,17 @@ $productPrice = isset($_POST['productPrice']) ? $_POST['productPrice'] : null;
 $result = $collection->insertOne([
     "name" => $productName,
     "description" => $productDescription,
-    "price" => $productPrice,
-    "image" => uploadImageToServer()]);
+    "price" => (float)$productPrice,
+    "image" => uploadImagesToServer("fileToUpload")]);
 
-function uploadImageToServer()
+function uploadImagesToServer($fileContainer)
 {
-    $file_count = count($_FILES["fileToUpload"]['name']);
+    $file_count = count($_FILES[$fileContainer]['name']);
     $uploadedFiles = array();
     for($index=0;$index<$file_count;$index++)
     {
 
-        if (isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"]["error"][$index] == UPLOAD_ERR_OK)
+        if (isset($_FILES[$fileContainer]) && $_FILES[$fileContainer]["error"][$index] == UPLOAD_ERR_OK)
         {
             //  $numFiles = count($_FILES["fileToUpload"]["tmp_name"]);
             // for ($index = 0; $index < $numFiles; $index++)
@@ -43,13 +43,13 @@ function uploadImageToServer()
 
 
             //Is file size is less than allowed size.
-            if ($_FILES["fileToUpload"]["size"] [$index] > 5242880)
+            if ($_FILES[$fileContainer]["size"] [$index] > 5242880)
             {
                 die("File size is too big!");
             }
 
             //allowed file type Server side check
-            switch (strtolower($_FILES['fileToUpload']['type'][$index]))
+            switch (strtolower($_FILES[$fileContainer]['type'][$index]))
             {
                 //allowed file types
                 case 'image/png':
@@ -61,12 +61,12 @@ function uploadImageToServer()
                     die('Unsupported File!'); //output error
             }
 
-            $File_Name = strtolower($_FILES['fileToUpload']['name'][$index]);
+            $File_Name = strtolower($_FILES[$fileContainer]['name'][$index]);
             $File_Ext = substr($File_Name, strrpos($File_Name, '.')); //get file extention
             $Random_Number = rand(0, 9999999999); //Random number to be added to name.
             $NewFileName = $Random_Number . $File_Ext; //new file name
 
-            if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'][$index], $UploadDirectory . $NewFileName))
+            if (move_uploaded_file($_FILES[$fileContainer]['tmp_name'][$index], $UploadDirectory . $NewFileName))
             {
                array_push($uploadedFiles,$NewFileName);
             } else
