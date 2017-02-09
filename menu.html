@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>The Plant House - For all occasions</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+	<meta name="description" content="Plants by The Plant House."> 
+	<meta property="og:url" content="http://localhost"> 
+	<meta property="og:type" content="website"> 
+	<meta property="og:title" content="The Plant House - For all occasions"> 
+	<meta property="og:description" content="Plants by The Plant House."> 
+
+	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<style type="text/css">
+		.row {
+			margin: 0px;
+		}
+		.menu {
+			margin-top: 50px;						
+		}
+		.text-center {
+			text-align: center;
+		}
+		.vcenter {
+		    display: inline-block;
+		    vertical-align: middle;
+		    float: none;
+		}
+		.font-size-30 {
+			font-size: 30px;
+		}
+		.font-size-20 {
+			font-size: 20px;
+		}
+		.nav {
+			display:inline-block;
+		}
+		.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+			background-color: #28944e;
+		}
+		.nav>li>a:focus, .nav>li>a:hover {
+			background-color: #86d090;
+			color: #ffffff;
+		}
+		.nav>li>a {
+			color: #196633;
+		}
+		.dark-green-color {
+			color: #196633;
+		}
+		.dark-green-bg {
+			background-color: #196633;
+		}
+		.cart-button, #items-cart {
+			cursor: pointer;
+		}
+		#items-cart {
+			opacity: 1;
+		    position: absolute;
+		    margin-top: -2px;
+		    margin-left: -12px;
+		    background-color: #3ab34a;
+		    border-radius: 51px;
+		    padding-left: 6px;
+		    padding-right: 6px;
+		    color: white;
+		}
+		.notification-bar {
+			height: 35px;
+		}
+		a {
+			cursor: pointer;
+		}
+		.categories {
+			border: 1px solid red;
+		}
+		.content {
+			margin-top: 50px;
+		}
+
+		.search {
+			display: inline-block;
+			float: right;
+		    border: 1px solid #196633;	
+		    border-radius: 10px;
+		}
+		.glyphicon {
+			top: 0px;
+		}
+		.search span {
+			cursor: pointer;
+			border-radius: 10px;
+			float: right;
+			box-sizing: border-box;
+			display: inline-block;
+		    line-height: 38px;
+		    padding: 0 10px;
+		}
+
+		.search:not(.active):hover span {
+			opacity: 0.6;
+			background-color: #196633;
+			color: white;
+		}
+
+		.search .search-box {
+			display: none;
+		}
+
+		.search.active {
+			width: 100%;
+		}
+
+		.search.active .search-box {
+			outline: none;
+			margin-left: 5px;
+			margin-top: 1px;
+			border-radius: 9px;
+		    background: transparent;
+		    border: none;
+			height: 36px;
+			display: inline-block;
+			width: calc(100% - 50px);
+
+		}
+
+		.notification-text {
+		    color: white;
+		    line-height: 35px;
+		    opacity: 0.9;
+		}
+
+		.footer {
+			bottom: 0px;
+			right: 0px;
+			left: 0px;
+			border-top: 1px solid #196633;
+			position: absolute;
+		}
+
+		.margin-top-25 {
+			margin-top: 25px;
+		}
+		.margin-bottom-25 {
+			margin-bottom: 25px;
+		}
+		#user-menu {
+			display: inline-block; 
+			vertical-align: middle; 
+			margin-left: 15px;
+		}
+		
+		body {
+			min-height: 100%;
+		}
+
+		.btn-default {
+			border-color: #196633;
+		}
+		.dropdown {
+			display:inline-block;
+		}
+	</style> 
+</head>
+<body>
+<!-- Notification Bar -->
+<div class="row">
+	<div class="col-lg-12 dark-green-bg notification-bar">
+		<div class="row">
+			<div class="col-lg-2"></div>
+			<div class="col-lg-10 notification-text"><span>Attention - This is a notification that can be used for something simple</span></div>
+		</div>
+	</div>
+</div>
+
+<!-- Menu -->
+<div class="row menu">
+  <div class="col-lg-2"></div>
+  <div class="col-sm-12 col-lg-2 text-center vcenter">
+  	<img src="./logo.png" alt="The Plant House">
+  </div>
+  <div class="col-sm-12 col-lg-4 text-center vcenter">
+	<ul class="nav nav-pills"> 
+		<li role="presentation" class="active">
+			<a href="#">Home</a>
+		</li> 
+		<li role="presentation">
+			<a href="#">New Arrivals</a>
+		</li> 
+		<li role="presentation">
+			<a href="#">Today's Deals</a>
+		</li> 
+		<li role="presentation">
+			<a href="#">Most Popular</a>
+		</li> 
+		<li role="presentation">
+			<a href="#">Help</a>
+		</li> 
+<!-- 		<li role="presentation" class="dropdown"> 
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Dropdown <span class="caret"></span> </a> 
+			<ul class="dropdown-menu"> 
+				<li>
+					<a href="#">Action</a>
+				</li>
+				<li>
+					<a href="#">Another action</a>
+				</li> 
+				<li>
+					<a href="#">Something else here</a>
+				</li> 
+				<li role="separator" class="divider"></li> 
+				<li><a href="#">Separated link</a></li> 
+			</ul>
+		</li>  -->
+	</ul>
+	<div class="search">
+		<input type="text" class="search-box">
+		<span id="search-button" class="glyphicon glyphicon-search font-size-20 dark-green-color" aria-hidden="true"></span>
+	</div>
+  </div>
+  <div class="col-sm-12 col-lg-2 vcenter">
+  	<span class="glyphicon glyphicon-shopping-cart font-size-30 dark-green-color cart-button" aria-hidden="true"></span>
+	<span id="items-cart">2</span>
+	<p id="user-menu">
+		<a href="">Sign in</a> or <a href="">register</a>
+		<div class="dropdown">
+		  <button class="btn btn-default dropdown-toggle" type="button" id="my-account" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		    Your Account
+		    <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" aria-labelledby="my-account">
+			<li>
+				<a href="#">Account</a>
+			</li>
+			<li>
+				<a href="#">Orders</a>
+			</li> 
+		    <li role="separator" class="divider"></li>
+			<li>
+				<a href="#">Recommendations</a>
+			</li> 
+		  </ul>
+		</div>
+	</p>
+  </div>
+  <div class="col-lg-2"></div>
+</div>
+
+<footer class="footer text-center">
+	<img class="margin-top-25 margin-bottom-25" src="./logo.png" alt="The Plant House">
+</footer>
+<!-- footer -->	
+<script>
+	$('.search').click(function(e) {
+		if ($(e.target).is('#search-button')) {
+			if ($('.search').hasClass('active')) {
+				$('.search-box').val('');
+			}
+
+			$(this).toggleClass('active');
+			$('.search-box').focus();
+		}
+	})
+</script>
