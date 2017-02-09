@@ -52,7 +52,7 @@
                     </div>
                     <div class="form-group">
                         <label for="productCategory">Product Category:</label>
-                        <select multiple class="form-control" id="productCategory" name="productCategory">
+                        <select multiple class="form-control"  id="productCategory" name="productCategory">
                             <option>Flowers</option>
                             <option>Fruit</option>
                             <option>Cactus</option>
