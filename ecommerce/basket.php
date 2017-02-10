@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Cart</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-    </head>
+<?php include 'meta.php';
+?>
     <body>
-        <div class="jumbotron text-center">
-            <h1>Shopping Basket</h1>
-        </div>
+        
+        <?php include 'menu.php';
+?>
 
-        <div class ="row">
+        <div class ="row borderbottom">
             <div class="col-sm-2">
             </div>
             <div class="col-sm-8 formBorder">
@@ -42,94 +33,33 @@
                         </div>
                     </div>
                     <div class="col-sm-8"> 
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <div class="col-sm-4">
-                                    <img class="img-responsive" src="data/productImages/sample1.png"> 
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="row">
-                                        <h3>Product Name:</h3>
-                                        <p>Price:</p>
-                                        <div class="row">
-                                            <div class="col-sm-4">   
-                                                <label for="qty-box">Qty.</label>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <input type="number" class="form-control" id="qty-box"  value="0"> 
-                                            </div>
-                                        </div>
-                                        <p>Subtotal:</p>
+                        <?php 
+                        for ($count=0; $count<10; $count++)
+                        {
+                        echo "<div class='row product'>
+                                <div class='col-sm-8'>
+                                    <div class='col-sm-4'>
+                                        <img class='img-responsive' src='data/productImages/sample1.png'> 
                                     </div>
-                                </div>
-                            </div> 
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <div class="col-sm-4">
-                                    <img class="img-responsive" src="data/productImages/sample1.png"> 
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="row">
-                                        <h3>Product Name:</h3>
-                                        <p>Price:</p>
-                                        <div class="row">
-                                            <div class="col-sm-4">   
-                                                <label for="qty-box">Qty.</label>
+                                    <div class='col-sm-8'>
+                                        <div class='row'>
+                                            <h3>Product Name:</h3>
+                                            <p>Price:</p>
+                                            <div class='row'>
+                                                <div class='col-sm-4'>   
+                                                    <label for='qty-box'>Qty.</label>
+                                                </div>
+                                                <div class='col-sm-8'>
+                                                    <input type='number' class='form-control' id='qty-box'  value='0'> 
+                                                </div>
                                             </div>
-                                            <div class="col-sm-4">
-                                                <input type="number" class="form-control" id="qty-box"  value="0"> 
-                                            </div>
+                                            <input type='submit' class='btn btn-primary' id='removeproduct-btn' value='Remove' >
                                         </div>
-                                        <p>Subtotal:</p>
                                     </div>
-                                </div>
-                            </div> 
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <div class="col-sm-4">
-                                    <img class="img-responsive" src="data/productImages/sample1.png"> 
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="row">
-                                        <h3>Product Name:</h3>
-                                        <p>Price:</p>
-                                        <div class="row">
-                                            <div class="col-sm-4">   
-                                                <label for="qty-box">Qty.</label>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <input type="number" class="form-control" id="qty-box"  value="0"> 
-                                            </div>
-                                        </div>
-                                        <p>Subtotal:</p>
-                                    </div>
-                                </div>
-                            </div> 
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <div class="col-sm-4">
-                                    <img class="img-responsive" src="data/productImages/sample1.png"> 
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="row">
-                                        <h3>Product Name:</h3>
-                                        <p>Price:</p>
-                                        <div class="row">
-                                            <div class="col-sm-4">   
-                                                <label for="qty-box">Qty.</label>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <input type="number" class="form-control" id="qty-box"  value="0"> 
-                                            </div>
-                                        </div>
-                                        <p>Subtotal:</p>
-                                    </div>
-                                </div>
-                            </div> 
-                        </div>
+                                </div> 
+                            </div>";
+                        }
+                        ?>
                     </div>
                 </div>
 
@@ -138,6 +68,8 @@
             <div class="col-sm-2">
             </div>
         </div>
-
+        <?php include 'footer.php';
+?>
     </body>
+            
 </html>

@@ -9,5 +9,166 @@ and open the template in the editor.
 */
 .formBorder{
     border-style: solid;
+    border-radius: 20px;
+    border-color:rgba(25,102,51,0.4);
+    border-width: 4px;
+    padding:20px;
+}
+.subformBorder{
+    border-style: solid;
+    border-radius: 20px;
+    border-color:rgba(25,102,51,0.4);
+    border-width: 2px;
+    padding:20px;
+}
+.buttonmargin{
+    margin-top:5px;
 }
 
+.row {
+    margin: 0px !important;
+}
+.product{
+    border-bottom-style: solid;
+    border-bottom-width: 2px ;
+    border-bottom-color: rgba(25,102,51,0.4);
+    padding-bottom:20px;
+}
+
+.menu {
+    margin-top: 50px;						
+}
+.text-center {
+    text-align: center;
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+.font-size-30 {
+    font-size: 30px;
+}
+.font-size-20 {
+    font-size: 20px;
+}
+.nav {
+    display:inline-block;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    background-color: #28944e;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    background-color: #86d090;
+    color: #ffffff;
+}
+.nav>li>a {
+    color: #196633;
+}
+.dark-green-color {
+    color: #196633;
+}
+.dark-green-bg {
+    background-color: #196633;
+}
+.cart-button, #items-cart {
+    cursor: pointer;
+}
+#items-cart {
+    opacity: 1;
+    position: absolute;
+    margin-top: -2px;
+    margin-left: -12px;
+    background-color: #3ab34a;
+    border-radius: 51px;
+    padding-left: 6px;
+    padding-right: 6px;
+    color: white;
+}
+.notification-bar {
+    height: 35px;
+}
+a {
+    cursor: pointer;
+}
+.categories {
+    border: 1px solid red;
+}
+.content {
+    margin-top: 50px;
+}
+.search {
+    display: inline-block;
+    float: right;
+    border: 1px solid #196633;	
+    border-radius: 10px;
+}
+.glyphicon {
+    top: 0px;
+}
+.search span {
+    cursor: pointer;
+    border-radius: 10px;
+    float: right;
+    box-sizing: border-box;
+    display: inline-block;
+    line-height: 38px;
+    padding: 0 10px;
+}
+.search:not(.active):hover span {
+    opacity: 0.6;
+    background-color: #196633;
+    color: white;
+}
+.search .search-box {
+    display: none;
+}
+.search.active {
+    width: 100%;
+}
+.search.active .search-box {
+    outline: none;
+    margin-left: 5px;
+    margin-top: 1px;
+    border-radius: 9px;
+    background: transparent;
+    border: none;
+    height: 36px;
+    display: inline-block;
+    width: calc(100% - 50px);
+}
+.notification-text {
+    color: white;
+    line-height: 35px;
+    opacity: 0.9;
+}
+.footer {
+    right: 0px;
+    left: 0px;
+    border-top: 1px solid rgba(25,102,51,0.4);
+    position: absolute;
+}
+.margin-top-25 {
+    margin-top: 25px;
+}
+.margin-bottom-25 {
+    margin-bottom: 25px;
+}
+.borderbottom{
+    padding-bottom: 300px;
+}
+#user-menu {
+    display: inline-block; 
+    vertical-align: middle; 
+    margin-left: 15px;
+}
+
+body {
+    min-height: 100%;
+}
+.btn-default {
+    border-color: #196633;
+}
+.dropdown {
+    display:inline-block;
+}
