@@ -7,8 +7,8 @@
 
     <div class ="row borderbottom">
         <div class="col-sm-2">
-        <?php include 'categories.php';
-        ?>
+            <?php include 'categories.php';
+            ?>
         </div>
         <div class="col-sm-8 formBorder">
 
@@ -87,17 +87,19 @@
                 </div>
 
                 <div class ="row">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#">Product Description</a></li>
-                        <li><a href="#">Additional Info</a></li>
-                    </ul>
-                    <div class ="row">
-                        <div class="col-sm-2">
-                        </div>
-                        <div class="col-sm-8">
-                            <p>this is the descljhsvksvlkfdvlkdflnv</p>
-                        </div>  
-                        <div class="col-sm-2">
+                    <div class="col-sm-12">
+                        <ul class="nav nav-tabs descriptionpadding">
+                            <li class="active"><a href="#">Product Description</a></li>
+                            <li><a href="#">Additional Info</a></li>
+                        </ul>
+                        <div class ="row">
+                            <div class="col-sm-2">
+                            </div>
+                            <div class="col-sm-8">
+                                <p>this is the descljhsvksvlkfdvlkdflnv</p>
+                            </div>  
+                            <div class="col-sm-2">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -109,7 +111,7 @@
     </div>
     <script src="js/basket.js"></script>
     <?php include 'footer.php';
-?>
+    ?>
 </body>
 
 </html>

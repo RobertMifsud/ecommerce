@@ -7,7 +7,7 @@ $result = $collection->find( );
 
 
 echo'
-<ul class="nav nav-pills nav-stacked">
+<ul class="nav nav-pills nav-stacked nav-categories">
         <li class="active"><a href="#">Categories</a></li>';
         foreach ($result as $entry) 
             {

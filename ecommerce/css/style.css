@@ -58,6 +58,9 @@ and open the template in the editor.
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
     background-color: #28944e;
 }
+.nav-categories{
+    display:block;
+}
 .nav>li>a:focus, .nav>li>a:hover {
     background-color: #86d090;
     color: #ffffff;
@@ -171,4 +174,7 @@ body {
 }
 .dropdown {
     display:inline-block;
+}
+.descriptionpadding{
+    padding-top: 30px;
 }
