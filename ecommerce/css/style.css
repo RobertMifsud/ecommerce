@@ -178,3 +178,6 @@ body {
 .descriptionpadding{
     padding-top: 30px;
 }
+.nopaddingleft{
+    padding-left:0px;
+}
