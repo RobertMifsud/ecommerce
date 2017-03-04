@@ -54,6 +54,7 @@ function uploadImagesToServer($fileContainer)
                 //allowed file types
                 case 'image/png':
                 case 'image/gif':
+                case 'image/jpg':
                 case 'image/jpeg':
                 case 'image/bmp':
                     break;

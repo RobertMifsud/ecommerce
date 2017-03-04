@@ -7,7 +7,7 @@
     <div class="row borderbottom">
         <div class="col-sm-2">
             <?php include 'cmscategories.php';
-    ?>
+            ?>
         </div>
         <div class="col-sm-8">
             <div class="row">
@@ -49,13 +49,13 @@
                             <textarea class="form-control" name="productDesc" id="productDesc" rows="3"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="productCategory">Product Category:</label>
-                            <select multiple class="form-control" id="productCategory" name="productCategory">
-                                <option>Flowers</option>
-                                <option>Fruit</option>
-                                <option>Cactus</option>
-                            </select>
 
+                            <label for="categoryselect">Select Category:</label>
+                            <select class="form-control" id="categoryselect">
+                                <option>New Category</option>
+                            </select>
+                        </div>    
+                        <div class="form-group">
                             <div class="row">   
                                 <div class="form-group col-sm-4 nopaddingleft">
                                     <label for="productPrice">Product Price:</label>
@@ -97,6 +97,7 @@
     </div>
 
     <script src="js/addProduct.js"></script>
+    <script src="js/categories.js"></script>
     <?php include 'footer.php';
     ?>
 </body>

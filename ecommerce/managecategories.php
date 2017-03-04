@@ -1,5 +1,6 @@
 <?php include 'meta.php';
 ?>
+
 <body>
     <?php include 'menu.php';
     ?>
@@ -14,7 +15,7 @@
                 <div class ="col-sm-8">
                     <div class="form-group">
                         <label for="categoryselect">Select Category:</label>
-                        <select class="form-control" id="sel1">
+                        <select class="form-control" id="categoryselect">
                             <option>New Category</option>
                         </select>
                     </div>
@@ -69,7 +70,7 @@
     </div>
 </div>
 
-<script src="js/addProduct.js"></script>
+<script src="js/categories.js"></script>
 <?php include 'footer.php';
 ?>
 </body>

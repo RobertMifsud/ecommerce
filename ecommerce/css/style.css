@@ -7,34 +7,11 @@ and open the template in the editor.
     Created on : 02-Feb-2017, 09:34:59
     Author     : Robert
 */
-.formBorder{
-    border-style: solid;
-    border-radius: 20px;
-    border-color:rgba(25,102,51,0.4);
-    border-width: 4px;
-    padding:20px;
-}
-.subformBorder{
-    border-style: solid;
-    border-radius: 20px;
-    border-color:rgba(25,102,51,0.4);
-    border-width: 2px;
-    padding:20px;
-}
-.buttonmargin{
-    margin-top:5px;
-}
+
 
 .row {
     margin: 0px !important;
 }
-.product{
-    border-bottom-style: solid;
-    border-bottom-width: 2px ;
-    border-bottom-color: rgba(25,102,51,0.4);
-    padding-bottom:20px;
-}
-
 .menu {
     margin-top: 50px;						
 }
@@ -58,9 +35,7 @@ and open the template in the editor.
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
     background-color: #28944e;
 }
-.nav-categories{
-    display:block;
-}
+
 .nav>li>a:focus, .nav>li>a:hover {
     background-color: #86d090;
     color: #ffffff;
@@ -157,9 +132,7 @@ a {
 .margin-bottom-25 {
     margin-bottom: 25px;
 }
-.borderbottom{
-    padding-bottom: 300px;
-}
+
 #user-menu {
     display: inline-block; 
     vertical-align: middle; 
@@ -175,9 +148,39 @@ body {
 .dropdown {
     display:inline-block;
 }
+
 .descriptionpadding{
     padding-top: 30px;
 }
 .nopaddingleft{
     padding-left:0px;
+}
+.nav-categories{
+    display:block;
+}
+.product{
+    border-bottom-style: solid;
+    border-bottom-width: 2px ;
+    border-bottom-color: rgba(25,102,51,0.4);
+    padding-bottom:20px;
+}
+.formBorder{
+    border-style: solid;
+    border-radius: 20px;
+    border-color:rgba(25,102,51,0.4);
+    border-width: 4px;
+    padding:20px;
+}
+.subformBorder{
+    border-style: solid;
+    border-radius: 20px;
+    border-color:rgba(25,102,51,0.4);
+    border-width: 2px;
+    padding:20px;
+}
+.borderbottom{
+    padding-bottom: 300px;
+}
+.buttonmargin{
+    margin-top:5px;
 }
