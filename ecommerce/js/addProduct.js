@@ -1,29 +1,23 @@
-var snapShot = document.getElementById('snapShot');
-var context = snapShot.getContext('2d');
-var video = document.getElementById('liveStream');
 var URL;
-context.fillText("-N/a-", 10, 100);
+
 document.getElementById("fileToUpload").addEventListener("change", onFileSelected);
-if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
-{
-    navigator.getUserMedia({video: true},
-            function (stream) //sucess callback
+
+var $categories;
+$.post("php/database.php",
+        {
+            categories: "all",
+        },
+        function (data) {
+            $categories = JSON.parse(data);
+            $('#categoryselect').empty();
+            $('#categoryselect').append($('<option>', {text: "-New Category-"}));
+            for ($x in $categories)
             {
-                video.src = window.URL.createObjectURL(stream);
-                video.play();
-            },
-            function ()//fail callback
-            {
-                context.fillText("Camera not available", 10, 50);
-            });
-}
-///////////////////////////////////////////////////////////////////////////////
-document.getElementById("snap").addEventListener("click", function ()
-{
-    context.clientHeight = video.clientHeight;
-    context.clientWidth = video.clientWidth;
-    context.drawImage(video, 0, 0, context.clientWidth, context.clientHeight);  //320,240
-});
+                $('#categoryselect').append($('<option>', {value: $x, text: $categories[$x].name}));
+                console.log($categories[$x].name);
+            }
+        });
+
 /////////////////////////////////////////////////////////////////////////////////
 $(document).ready(function () {
     var options = {

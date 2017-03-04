@@ -16,7 +16,6 @@
                     <div class="form-group">
                         <label for="categoryselect">Select Category:</label>
                         <select class="form-control" id="categoryselect">
-                            <option>New Category</option>
                         </select>
                     </div>
                 </div>

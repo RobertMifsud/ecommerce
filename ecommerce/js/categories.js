@@ -6,7 +6,6 @@ $.post("php/database.php",
         function (data) {
             $categories = JSON.parse(data);
             $('#categoryselect').empty();
-            $('#categoryselect').append($('<option>', {text: "-New Category-"}));
             for ($x in $categories)
             {
                 $('#categoryselect').append($('<option>', {value: $x, text: $categories[$x].name}));

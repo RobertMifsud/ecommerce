@@ -14,25 +14,6 @@
                 <div class="col-sm-2">
                 </div>
                 <div class="col-sm-8">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <video id="liveStream" width="100%" alt="liveo video frame" autoplay></video>
-                        </div>
-                        <div class="col-sm-4">
-                            <input type="image" id="snap" width="40%" src="img/cameraicon.png" alt="snapshot button" >       
-                        </div>
-                        <div class="col-sm-4">
-                            <canvas id="snapShot" alt="player saved picture" ></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
-                </div>
-                <div class="col-sm-8">
                     <form action="php/imageUpload.php" method="post" enctype="multipart/form-data" id="imageUploadForm">
                         <div class="form-group">
                             <label for="exampleInputFile">Product Images</label>
