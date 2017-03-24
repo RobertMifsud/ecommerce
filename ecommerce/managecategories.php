@@ -7,7 +7,7 @@
 
     <div class="row borderbottom">
         <div class="col-sm-2">
-            <?php include 'cmscategories.php';
+            <?php include 'cmsmenu.php';
             ?>
         </div>
         <div class="col-sm-8">
@@ -69,7 +69,7 @@
     </div>
 </div>
 
-<script src="js/categories.js"></script>
+<script src="js/cmscategories.js"></script>
 <?php include 'footer.php';
 ?>
 </body>

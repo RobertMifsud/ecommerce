@@ -3,7 +3,8 @@ var x = document.getElementsByClassName("addtocartbutton");
 for (i = 0; i < x.length; i++) {
     x[i].style.addEventListener("click", animatetocart);
 }*/
-$(".addtocartbutton").on('click', function() {
+function animatecart(){
+
      var $preVal = this.value;
      var $thisButton = this;
      $thisButton.value = "Added";
@@ -18,4 +19,6 @@ $(".addtocartbutton").on('click', function() {
      setTimeout(function(){
          $thisButton.value = $preVal;
      }, 1500);
-});
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////

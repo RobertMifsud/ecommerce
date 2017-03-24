@@ -1,23 +1,15 @@
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 var $categories;
-$.post("php/database.php",
-        {
-            categories: "all",
-        },
+$.get("http://backend.dev/categories",
         function (data) {
             $categories = JSON.parse(data);
-            $('#categoryselect').empty();
             for ($x in $categories)
             {
-                $('#categoryselect').append($('<option>', {value: $x, text: $categories[$x].name}));
-                console.log($categories[$x].name);
+                $('#categoriessidebar').append("<li><a href='#'>"+$categories[$x].name+'</a></li>');
             }
         });
 
-////////////////////////////////////////////////////////////////////////////////////////////
-$('#categoryselect').change(function () {
-    var $selecteditem = $('#categoryselect').find('option:selected').val();
-    $('#categoryname').val($categories[$selecteditem].name);
-    $('#categorydesc').val($categories[$selecteditem].description);
-    $('#categorylist').val($categories[$selecteditem].parent_id);
-});
-//////////////////////////////////////////////////////////////////////////////////////////////

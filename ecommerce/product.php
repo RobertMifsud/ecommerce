@@ -14,35 +14,16 @@
 
             <div class="row">
                 <div class="col-sm-12">
-                    <h2>Product Name</h2>
+                    <div id="producttitle">
+
+                    </div>
                 </div>
                 <div class="col-sm-6">
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="1"></li>
-                            <li data-target="#myCarousel" data-slide-to="2"></li>
-                            <li data-target="#myCarousel" data-slide-to="3"></li>
-                        </ol>
 
                         <!-- Wrapper for slides -->
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                                <img src="data/productImages/sample1.png" >
-                            </div>
+                        <div class="carousel-inner" id="productcarousel" role="listbox">
 
-                            <div class="item">
-                                <img src="data/productImages/sample2.png" >
-                            </div>
-
-                            <div class="item">
-                                <img src="data/productImages/sample3.png" >
-                            </div>
-
-                            <div class="item">
-                                <img src="data/productImages/sample4.png" >
-                            </div>
                         </div>
 
                         <!-- Left and right controls -->
@@ -60,13 +41,16 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <h3>Price:</h3>
+                            <div id="productprice">
+
+                            </div>
                         </div>
                     </div>
                     <div class ="row">
                         <div class="form-group">
                             <div class="col-sm-4">
                                 <label for="qty">Qty:</label>
-                                <input type="number" class="form-control" id="qty"  placeholder="0">  
+                                <input type="number" class="form-control" id="qty"  value="1" min="1">  
                             </div>
                             <div class="col-sm-8">
                             </div>
@@ -89,16 +73,31 @@
                 <div class ="row">
                     <div class="col-sm-12">
                         <ul class="nav nav-tabs descriptionpadding">
-                            <li class="active"><a href="#">Product Description</a></li>
-                            <li><a href="#">Additional Info</a></li>
+                            <li class="active"><a data-toggle="tab" href="#productdescription">Product Description</a></li>
+                            <li><a data-toggle="tab" href="#additionalinfo">Additional Info</a></li>
                         </ul>
-                        <div class ="row">
-                            <div class="col-sm-2">
+                        <div class="tab-content">
+                            <div id="productdescription" class="tab-pane fade in active">
+                                <div class="col-sm-2">
+                                </div>
+                                <div class="col-sm-8">
+                                    <div id="tabdesc">
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                </div>
                             </div>
-                            <div class="col-sm-8">
-                                <p>this is the descljhsvksvlkfdvlkdflnv</p>
-                            </div>  
-                            <div class="col-sm-2">
+                            <div id="additionalinfo" class="tab-pane fade in ">
+                                <div class="col-sm-2">
+                                </div>
+                                <div class="col-sm-8">
+                                    <div id ="tabaddinfo">
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -109,6 +108,7 @@
             </div>
         </div>
     </div>
+    <script src="js/product.js"></script>
     <script src="js/basket.js"></script>
     <?php include 'footer.php';
     ?>

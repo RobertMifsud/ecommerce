@@ -1,19 +1,17 @@
-<?php
-require 'vendor\autoload.php';
-$client = new MongoDB\Client("mongodb://localhost:27017");
-$collection = $client->ecommerce->categories;
+<div class="carousel slide  carousel-sync" data-ride="carousel">
 
-$result = $collection->find( );
+    <div class="carousel-inner" id ="featuredcarousel" role="listbox">
+
+    </div>
+
+</div>
+<div class="carousel slide  carousel-sync" data-ride="carousel">
+
+    <div class="carousel-inner" id ="recomendedcarousel" role="listbox">
+
+    </div>
+</div>
 
 
-echo'
-<ul class="nav nav-pills nav-stacked nav-categories">
-        <li class="active"><a href="#">Categories</a></li>';
-        foreach ($result as $entry) 
-            {
-        
-                echo '<li><a href="#">'.$entry['name'].'</a></li>';
-            }
-echo '</ul>';
-
-?>
+</div>
+<script src="js/featured.js"></script>
