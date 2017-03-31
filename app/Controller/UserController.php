@@ -18,6 +18,11 @@ class UserController extends BaseController implements ControllerInterface
         $this->repository = new MongoDB("users");
     }
 
+    public function getOrder($_id)
+    {
+        return json_encode($this->repository->get(["orders._id" => new ObjectID($_id)]));
+    }
+
     /**
      * Register
      */
@@ -27,12 +32,13 @@ class UserController extends BaseController implements ControllerInterface
         $data['password'] = hash_hmac("sha512", $data['password'], $this->key);
 
         $username_exists = $this->repository->get(["username" => $data['username']]);
+        $data['is_admin'] = false;
 
         if (empty($username_exists)) {
             $user = $this->repository->create($data);
 
             if ($user->getInsertedCount() > 0) {
-                return json_encode(["status" => "success", "user" => $user]);
+                return json_encode(["status" => "success", "user" => $this->repository->get(["_id" => $user->getInsertedId()])[0]]);
             }
         }
 
@@ -64,7 +70,13 @@ class UserController extends BaseController implements ControllerInterface
 
         $order["_id"] = new ObjectID();
         $order["products"] = $data['products'];
-        $order["shipping_method"] = $data["shipping_method"];
+        $order["date"] = new \DateTime('now');
+
+        for ($i=0; $i < count($order["products"]); $i++) {
+            $order["products"][$i]["_id"] = new ObjectID($order["products"][$i]["_id"]);
+        }
+
+        $order["shipping_method"] = new ObjectId($data["shipping_method"]);
         $order["status"] = "pending";
 
         $orderAdded = $this->repository->update(["username" => $data["username"]], ['$push' => ["orders" => $order]]);
@@ -74,11 +86,6 @@ class UserController extends BaseController implements ControllerInterface
         } else {
             return json_encode(["status" => "fail"]);
         }
-    }
-
-    public function getUserOrders()
-    {
-
     }
 
     public function logUserView()

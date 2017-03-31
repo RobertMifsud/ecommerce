@@ -5,9 +5,16 @@ use App\Controller\ProductController;
 use App\Controller\CategoryController;
 use App\Controller\UserController;
 use App\Controller\CityController;
+use App\Controller\ShippingMethodController;
 
 class Router {
     private static $mapping = [
+        "shipping-methods" => [
+           "controller" => ShippingMethodController::class,
+           "action" => [
+               "GET" => "read"
+           ]
+        ],
         "recommended" => [
           "controller" => UserController::class,
           "actions" => [
@@ -32,11 +39,30 @@ class Router {
                 "POST" => "create"
             ]
         ],
+        "users" => [
+            "controller" => UserController::class,
+            "actions" => [
+                [
+                    "type" => "object_id",
+                    "action" => [
+                        "GET" => "read",
+                        "DELETE" => "delete"
+                    ]
+                ]
+            ]
+        ],
         "orders" => [
             "controller" => UserController::class,
             "action" => [
-                "GET" => "getUserOrders",
                 "POST" => "createUserOrder",
+            ],
+            "actions" => [
+                [
+                    "type" => "object_id",
+                    "action" => [
+                        "GET" => "getOrder",
+                    ]
+                ]
             ]
         ],
         "auth" => [

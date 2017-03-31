@@ -24,7 +24,7 @@ class BaseController implements ControllerInterface
 
     public function create()
     {
-        var_dump("Hello malta");
+         return Exception("Not implemented");
     }
 
     /**
@@ -50,11 +50,11 @@ class BaseController implements ControllerInterface
 
     public function update()
     {
-
+        return Exception("Not implemented");
     }
 
     public function delete()
     {
-
+        return Exception("Not implemented");
     }
 }
