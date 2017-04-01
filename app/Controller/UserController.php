@@ -134,7 +134,7 @@ class UserController extends BaseController implements ControllerInterface
      * @param string $_id
      * @return string
      */
-    public function getRecommendedProducts(string $_id = "") {
+    public function getRecommendedProducts(string $_id) {
         $user = $this->repository->get(["_id" => new ObjectID($_id)])[0];
 
         if (!empty($user["tracking"])) {
