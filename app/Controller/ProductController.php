@@ -18,13 +18,17 @@ class ProductController extends BaseController implements ControllerInterface
         $productName = !empty($_POST['productName']) ? $_POST['productName'] : null;
         $productDescription = !empty($_POST['productDesc']) ? $_POST['productDesc'] : null;
         $productPrice = !empty($_POST['productPrice']) ? $_POST['productPrice'] : null;
+        $productFeatured = !empty($_POST['featured']) ? $_POST['featured'] : "off";
+        $productCategory = !empty($_POST['category']) ? $_POST['category'] : null;
 
         return json_encode($this->repository->create([
             "name" => $productName,
             "description" => $productDescription,
+            "featured" => $productFeatured,
+            "category" => $productCategory,
             "price" => (float) $productPrice,
-            "image" => $this->uploadImagesToServer("fileToUpload")]));
-
+            "image" => $this->uploadImagesToServer("fileToUpload")
+        ]));
     }
 
     /*

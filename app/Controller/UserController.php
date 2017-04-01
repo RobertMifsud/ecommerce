@@ -164,5 +164,7 @@ class UserController extends BaseController implements ControllerInterface
 
             return json_encode($data);
         }
+
+        return json_encode([]);
     }
 }
