@@ -61,7 +61,6 @@
                         </div>  
                         <div class="col-sm-6">
                             <input type="submit" class="btn btn-primary buttonmargin addtocartbutton buttongrn" id="addCartButton" value="Add To Cart" >
-                            <input type="submit" class="btn btn-primary buttonmargin buttongrn" id="buyNowButton" value="Buy Now" >
                         </div>
                         <div class="col-sm-4">
                         </div> 

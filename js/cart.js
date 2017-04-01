@@ -3,21 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-var $cartitems;
+//var $cartitems;
 var $shippings;
+var $subtotal;
+var $grandtotal;
+var $shippingcost;
 $(document).ready(function () {
     $.get("http://backend.dev/shipping-methods",
             function (data) {
                 $shippings = JSON.parse(data);
                 $('#shippingselect').empty();
+                
                 for ($x in $shippings)
                 {
                     $('#shippingselect').append($('<option>', {value: $x, text: $shippings[$x].name}));
                 }
+                $('#shippingselect').change ( function () {
+                    $shippingcost = $shippings[$("#shippingselect option:selected").index()].price;
+                    $("#shippingcostvalue").text($shippingcost);
+                    $grandtotal = $shippingcost+$subtotal;
+                    $("#totalcostvalue").text($grandtotal);
+                  });
             });
-     
+
     $('#checkout-btn').click(function () {
-       var shipmethod = $shippings[$("#shippingselect option:selected").index()]._id.$oid;
+        var shipmethod = $shippings[$("#shippingselect option:selected").index()]._id.$oid;
         $.post({
             cache: false,
             url: 'http://backend.dev/orders',
@@ -33,13 +43,16 @@ $(document).ready(function () {
 //////////
     })
 });
+////////////////////////////////////////////////////////////////////////////////
 
+////////////////////////////////////////////////////////////////////////////////
 $cartitem = JSON.parse(localStorage.getItem("cart"));
 ////////////////////////
 for (let i = 0; i < $cartitem.length; ++i)
 {
     appendCartItem($cartitem[i]);
 }
+calculatesubTotal($cartitem);
 ///////////////////////////////////////////////////////////////////////////////
 function appendCartItem($item)
 {
@@ -60,7 +73,7 @@ function appendCartItem($item)
             "<input type='number' class='form-control' id='qty-box'  value='" + $item.qty + "'>" +
             "</div>" +
             "</div>" +
-            "<input type='submit' class='btn btn-primary buttongrn' id='removeproduct-btn' value='Remove' >" +
+            "<input type='button' class='btn btn-primary buttongrn' value='Remove'  onclick=removeProduct('"+$item._id+"')>" +
             "</div>" +
             "</div>" +
             "</div>" +
@@ -71,7 +84,7 @@ function appendCartItem($item)
 function getCartProducts($cartitems)
 {
     var products = new Array();
-    for (var $x=0;$x<$cartitems.length;$x++)
+    for (var $x = 0; $x < $cartitems.length; $x++)
     {
         products.push({_id: $cartitems[$x]._id, qty: $cartitems[$x].qty});
     }
@@ -80,5 +93,30 @@ function getCartProducts($cartitems)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 function checkoutSucceeded()
 {
-   // localStorage.removeItem("cart");
+    window.location.replace("./orders.php");
+   //  localStorage.removeItem("cart");
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+function calculatesubTotal($items)
+{
+    let $total = 0;
+    for (let i = 0; i < $items.length; ++i)
+    {
+        $total += $items[i].price * $items[i].qty;
+    }
+    $("#subtotalvalue").append($total);
+    $subtotal = $total;
+}
+/////////////////////////////////////////////////////////////////////////////////////////
+function removeProduct($itemid)
+{
+    for(var $i=0;$i<$cartitem.length;$i++)
+    {
+        if($cartitem[$i]._id==$itemid)
+        {
+            $cartitem.splice($i,1);
+        }
+    }
+    localStorage.setItem("cart",JSON.stringify($cartitem));
+    location.reload();
 }

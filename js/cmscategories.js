@@ -1,8 +1,5 @@
 var $categories;
-$.post("php/database.php",
-        {
-            categories: "all",
-        },
+$.get("http://backend.dev/categories",
         function (data) {
             $categories = JSON.parse(data);
             $('#categoryselect').empty();

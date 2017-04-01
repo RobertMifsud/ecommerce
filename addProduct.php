@@ -30,17 +30,20 @@
                             <textarea class="form-control" name="productDesc" id="productDesc" rows="3"></textarea>
                         </div>
                         <div class="form-group">
-
                             <label for="categoryselect">Select Category:</label>
-                            <select class="form-control" id="categoryselect">
-                                <option>New Category</option>
+                            <select class="form-control" name="category" id="categoryselect">
+                                <option></option>
                             </select>
                         </div>    
+                        <div class="form-group">
+                            <label for="featuredcheckbox">Featured:</label>
+                            <input type="checkbox" class=""  name="featured">
+                        </div>
                         <div class="form-group">
                             <div class="row">   
                                 <div class="form-group col-sm-4 nopaddingleft">
                                     <label for="productPrice">Product Price:</label>
-                                    <input name="productPrice" class="form-control"  id="productPrice" value="0.0" type="number"step="0.01">
+                                    <input name="productPrice"   id="productPrice" value="0.0" type="number"step="0.01">
                                 </div>
                                 <div class="col-sm-8">
                                 </div>

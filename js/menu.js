@@ -8,6 +8,7 @@ $('.search').click(function(e) {
 			$('.search-box').focus();
 		}
 	});
+        $("#items-cart")[0].innerHTML=getCartAmmount();
         checkLoggedUser();
         }
  );
@@ -43,6 +44,18 @@ function checkLoggedUser()
         $("#signinoption").empty();
         $("#signinoption").append("<p>Welcome "+ $usr.first_name +"</p>");
     }
+}
+////////////////////////////////////////////////
+function getCartAmmount()
+{
+            $cartProducts = JSON.parse(localStorage.getItem("cart"));
+           
+            if($cartProducts == null)
+            {
+               return 0;
+            }
+            
+            return $cartProducts.length;
 }
  
   

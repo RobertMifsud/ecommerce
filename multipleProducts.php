@@ -11,7 +11,6 @@
             ?>
         </div>
         <div class ="col-sm-8">
-            <h1>Latest Products</h1>
             <div id ="viewarea">
                 
             </div>

@@ -163,6 +163,7 @@ body {
     border-bottom-width: 2px ;
     border-bottom-color: rgba(25,102,51,0.4);
     padding-bottom:20px;
+    padding-top: 20px
 }
 .formBorder{
     border-style: solid;
@@ -183,10 +184,22 @@ body {
 }
 .buttonmargin{
     margin-top:5px;
+    margin-bottom: 10px
 }
 .multipleproductimage{
     height:200px;
 }
 .buttongrn{
     background-color: #196633;
+}
+.orderitem{
+    border-bottom-style: solid;
+    border-bottom-width: 2px ;
+    border-bottom-color: rgba(25,102,51,0.4);
+    padding-bottom:20px;
+    padding-top: 20px
+}
+.centregrntxt{
+    text-align: center;
+    color: #196633
 }

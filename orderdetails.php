@@ -27,8 +27,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-8" id="viewarea"> 
-                    <div class='row orderlist'>
+                <div class="col-sm-8""> 
+                    <div class='row' id = "orderlist">
 
                     </div>
                 </div>

@@ -12,7 +12,7 @@ $.get("http://backend.dev/categories",
             $('#categoryselect').append($('<option>', {text: "-New Category-"}));
             for ($x in $categories)
             {
-                $('#categoryselect').append($('<option>', {value: $x, text: $categories[$x].name}));
+                $('#categoryselect').append($('<option>', {value: $categories[$x]._id.$oid, text: $categories[$x].name}));
                 console.log($categories[$x].name);
             }
         });

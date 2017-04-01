@@ -3,6 +3,10 @@ var x = document.getElementsByClassName("addtocartbutton");
 for (i = 0; i < x.length; i++) {
     x[i].style.addEventListener("click", animatetocart);
 }*/
+$(document).ready(function () {
+    $("#items-cart")[0].innerHTML=getCartAmmount() ;//getCartAmmount();
+});
+///////////////////////////////////////////////////////////////////////////
 function animatecart(){
 
      var $preVal = this.value;
@@ -14,11 +18,22 @@ function animatecart(){
     $(".cart-button").animate({
         height: 'toggle'
     },"slow");
-     var $cartVal =parseInt( $("#items-cart")[0].innerHTML);
-     $("#items-cart")[0].innerHTML= $cartVal +1;//$("#items-cart").value +1;
+    
+   
      setTimeout(function(){
          $thisButton.value = $preVal;
      }, 1500);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
+function getCartAmmount()
+{
+            $cartProducts = JSON.parse(localStorage.getItem("cart"));
+           
+            if($cartProducts == null)
+            {
+               return 0;
+            }
+            
+            return $cartProducts.length;
+}

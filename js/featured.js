@@ -20,7 +20,7 @@ function getfeatured()
 ////////////////////////////////////////////////////////////////
 function getrecomended()
 {
-    $.get("http://backend.dev/recommended/"+JSON.parse(sessionStorage.getItem("loggeduser")).user._id.$oid ,function (data) {
+    $.get("http://backend.dev/recommended/"+JSON.parse(sessionStorage.getItem("loggeduser")).id ,function (data) {
         var $products = JSON.parse(data);
         addRecomended($products);
 
@@ -34,7 +34,7 @@ function addFeatured($products)
     for (var $productIndex = 0; $productIndex < $products.length; $productIndex++)
     {
         var $featureditem = "<div class='item' id=featured"+ $productIndex+">" +
-            "<a href='./product.php?product="+$products[$productIndex]._id.$oid+"'><img src='data/productImages/" + $products[$productIndex].image[0] + "' alt='" + $products[$productIndex].name + "'></a>" +
+            "<a href='./product.php?product="+$products[$productIndex]._id.$oid+"'><img src='http://backend.dev/files/" + $products[$productIndex].image[0] + "' alt='" + $products[$productIndex].name + "'></a>" +
             "</div>";
        
         $("#featuredcarousel").append($featureditem);
@@ -48,7 +48,7 @@ function addRecomended($products)
     for (var $productIndex = 0; $productIndex < $products.length; $productIndex++)
     {
         var $featureditem = "<div class='item' id=recomended"+ $productIndex+">" +
-            "<a href='./product.php?product="+$products[$productIndex]._id.$oid+"'><img src='data/productImages/" + $products[$productIndex].image[0] + "' alt='" + $products[$productIndex].name + "'></a>" +
+            "<a href='./product.php?product="+$products[$productIndex]._id.$oid+"'><img src='http://backend.dev/files/" + $products[$productIndex].image[0] + "' alt='" + $products[$productIndex].name + "'></a>" +
             "</div>";
        
         $("#recomendedcarousel").append($featureditem);

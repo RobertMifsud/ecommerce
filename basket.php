@@ -22,9 +22,11 @@
             <div class="row">
                 <div class="col-sm-4">    
                     <h3>Your Order:</h3>
-                    <p>Subtotal:</p>
+                    <p id="subtotalvalue">Subtotal:</p>
                     <p>Delivery:</p>
+                    <p id="shippingcostvalue"></p>
                     <h4>Total:</h4>
+                    <h4 id="totalcostvalue"></h4>
                     <label for="shippingselect">Shipping method:</label>
                     <div class="form-group">
                         <select class="form-control" id="shippingselect">

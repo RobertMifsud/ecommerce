@@ -7,9 +7,15 @@
 $.get("http://backend.dev/orders/" + getUrlParameter('order'),
         function (data) {
 
-            $order = JSON.parse(data);
-
-          
+            var $order = JSON.parse(data);
+            var $orders = $order[0].orders[0];
+            var $products = new Array();
+                 $products=   $orders.products;
+          for(var $x =0; $x<$products.length;$x++)
+          {
+             // appendOrderItem($products[$x]);
+             getorderProduct($products[$x]);
+          }
         });
 ////////////////////////////////////////////////////////////////
 function getUrlParameter(sParam) {
@@ -27,29 +33,38 @@ function getUrlParameter(sParam) {
     }
 }
 ///////////////////////////////////////////////////////////////////////////////
-function appendOrderItem($item)
+function appendOrderItem($item,$product)
 {
-    $singleproduct = "<div class='row product'>" +
+    $singleitem = "<div class='row orderitem'>" +
             "<div class='col-sm-8'>" +
             "<div class='col-sm-4'>" +
-            "<img class='img-responsive' src='data/productImages/" + $item.image + "'>" +
+            "<img class='img-responsive' src='http://backend.dev/files/" + $product[0].image[0] + "'>" +
             "</div>" +
             "<div class='col-sm-8'>" +
             "<div class='row'>" +
-            "<h3>Product Name:" + $item.name + "</h3>" +
-            "<p>Price:" + $item.price + "</p>" +
+            "<h3>Product Name:" + $product[0].name + "</h3>" +
             "<div class='row'>" +
             "<div class='col-sm-4'>" +
-            "<label for='qty-box'>Qty.</label>" +
+            "<h3>Qty:" + $item.qty + "</h3>"  +
             "</div>" +
             "<div class='col-sm-8'>" +
-            "<input type='number' class='form-control' id='qty-box'  value='" + $item.qty + "'>" +
             "</div>" +
             "</div>" +
-            "<input type='submit' class='btn btn-primary buttongrn' id='removeproduct-btn' value='Remove' >" +
             "</div>" +
             "</div>" +
             "</div>" +
             "</div>";
-    $("#viewarea").append($singleproduct);
+    $("#orderlist").append($singleitem);
+}
+////////////////////////////////////////////////////////////////////////////////////
+function getorderProduct($item)
+{
+    var $product;
+    $.get("http://backend.dev/products/" + $item._id.$oid,
+        function (data) {
+
+            $product = JSON.parse(data);
+            appendOrderItem($item,$product);
+        });
+        
 }

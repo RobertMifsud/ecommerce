@@ -54,7 +54,7 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="my-account">
                 <li>
-                    <a href="#">Account</a>
+                    <a href="addProduct.php">Admin</a>
                 </li>
                 <li>
                     <a href="orders.php">Orders</a>

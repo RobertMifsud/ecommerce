@@ -54,10 +54,10 @@ function appendRow($products, $rowID)
         $productIndex = ($rowID * 4) + $colIndex - 1;
         
         $("#rowid" + $rowID).append("<div class='col-sm-3'id='columnid" + $products[$productIndex]._id.$oid + "'></div>");
-        $("#columnid" + $products[$productIndex]._id.$oid).append("<a href='./product.php?product="+$products[$productIndex]._id.$oid+"'><img class='img-responsive  multipleproductimage' src= 'data/productImages/" + $products[$productIndex].image[0] + "'></a>");
+        $("#columnid" + $products[$productIndex]._id.$oid).append("<a href='./product.php?product="+$products[$productIndex]._id.$oid+"'><img class='img-responsive  multipleproductimage' src= 'http://backend.dev/files/" + $products[$productIndex].image[0] + "'></a>");
         $("#columnid" + $products[$productIndex]._id.$oid).append("<p>" + $products[$productIndex].name + "</p>");
         $("#columnid" + $products[$productIndex]._id.$oid).append("<p>" + $products[$productIndex].price + "</p>");
-        $("#columnid" + $products[$productIndex]._id.$oid).append("<input type='submit' class='btn btn-primary addtocartbutton buttonmargin' id='addCartButton' value='Add to cart' >");
+        $("#columnid" + $products[$productIndex]._id.$oid).append("<input type='submit' class='btn btn-primary addtocartbutton buttonmargin buttongrn' id='addCartButton' value='Add to cart' >");
         
         //   $("#rowid" + $rowID).append("</div>");
     }

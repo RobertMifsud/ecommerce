@@ -20,6 +20,7 @@ $(document).ready( function (){
             localStorage.setItem("cart",JSON.stringify($cartProducts));
         }
     });
+    
 } 
 );
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -39,7 +40,7 @@ $.post({
     cache: false,
     url: 'http://backend.dev/tracking',
     data: {json: JSON.stringify({
-            user_id: JSON.parse(sessionStorage.getItem("loggeduser")).user._id.$oid,
+            user_id: JSON.parse(sessionStorage.getItem("loggeduser")).id,
             product_id: getUrlParameter('product')
         })},
     dataType: 'json',
@@ -65,7 +66,7 @@ function updateProductCarousel($product)
     for (var $productimageIndex = 0; $productimageIndex < $product.image.length; $productimageIndex++)
     {
         var $carouselitem = "<div class='item' id=carouselitem" + $productimageIndex + ">" +
-                "<img src='data/productImages/" + $product.image[$productimageIndex] + "' alt='" + $product.name + "'>" +
+                "<img src='http://backend.dev/files/" + $product.image[$productimageIndex] + "' alt='" + $product.name + "'>" +
                 "</div>";
 
         $("#productcarousel").append($carouselitem);
