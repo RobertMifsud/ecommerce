@@ -67,7 +67,7 @@ class MongoDB implements RepositoryInterface
     public function get(
         array $criteria = null,
         array $sort = null,
-        array $fields = null,
+        array $fields = [],
         int $limit = 0,
         int $page = 0
     ): array
@@ -82,7 +82,7 @@ class MongoDB implements RepositoryInterface
         $skip = $page >= 1 && $limit >= 1 ? $limit * ($page - 1) : 0;
 
         // set cursor
-        $cursor = $this->db->{$this->collection}->find($criteria, ["sort" => $sort]);
+        $cursor = $this->db->{$this->collection}->find($criteria, ["projection" => $fields, "sort" => $sort]);
 
         // return records
         return iterator_to_array($cursor);

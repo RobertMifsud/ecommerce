@@ -18,9 +18,13 @@ class UserController extends BaseController implements ControllerInterface
         $this->repository = new MongoDB("users");
     }
 
+    /**
+     * @param $_id
+     * @return string
+     */
     public function getOrder($_id)
     {
-        return json_encode($this->repository->get(["orders._id" => new ObjectID($_id)]));
+        return json_encode($this->repository->get(["orders._id" => new ObjectID($_id)], null, ['orders.$' => true]));
     }
 
     /**
@@ -62,6 +66,9 @@ class UserController extends BaseController implements ControllerInterface
         }
     }
 
+    /**
+     * @return string
+     */
     public function createUserOrder()
     {
         $data = $_POST;
@@ -88,6 +95,9 @@ class UserController extends BaseController implements ControllerInterface
         }
     }
 
+    /**
+     * @return string
+     */
     public function logUserView()
     {
         $data = json_decode($_POST["json"]);
@@ -120,6 +130,10 @@ class UserController extends BaseController implements ControllerInterface
         }
     }
 
+    /**
+     * @param string $_id
+     * @return string
+     */
     public function getRecommendedProducts(string $_id = "") {
         $user = $this->repository->get(["_id" => new ObjectID($_id)])[0];
 
