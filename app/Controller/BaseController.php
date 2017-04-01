@@ -48,11 +48,17 @@ class BaseController implements ControllerInterface
         return json_encode($this->repository->get($criteria));
     }
 
+    /**
+     * @return mixed
+     */
     public function update()
     {
         return Exception("Not implemented");
     }
 
+    /**
+     * @return mixed
+     */
     public function delete()
     {
         return Exception("Not implemented");

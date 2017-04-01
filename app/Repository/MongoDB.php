@@ -97,6 +97,10 @@ class MongoDB implements RepositoryInterface
         return $this->db->{$this->collection}->updateOne($criteria, $data);
     }
 
+    /**
+     * @param array $criteria
+     * @return mixed
+     */
     public function aggregate(array $criteria = [])
     {
         return $this->db->{$this->collection}->aggregate($criteria);

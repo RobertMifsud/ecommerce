@@ -7,11 +7,18 @@ use MongoDB\BSON\ObjectID;
 
 class CategoryController extends BaseController implements ControllerInterface
 {
+    /**
+     * CategoryController constructor.
+     */
     public function __construct()
     {
         $this->repository = new MongoDB("categories");
     }
 
+    /**
+     * @param $_id
+     * @return string
+     */
     public function getCategoryAndProducts($_id)
     {
         $category = $this->repository->get(["_id" => new ObjectID($_id)]);

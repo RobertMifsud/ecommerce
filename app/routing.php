@@ -8,6 +8,9 @@ use App\Controller\CityController;
 use App\Controller\ShippingMethodController;
 
 class Router {
+    /**
+     * @var array
+     */
     private static $mapping = [
         "shipping-methods" => [
            "controller" => ShippingMethodController::class,
@@ -143,6 +146,11 @@ class Router {
         ]
     ];
 
+    /**
+     * @param $path
+     * @param $method
+     * Can be done using reflection although time limitation :(
+     */
     public static function handlePath($path, $method) {
         $pathFragments = explode("/", $path);
 

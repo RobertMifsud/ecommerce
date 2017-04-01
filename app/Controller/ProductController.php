@@ -28,7 +28,7 @@ class ProductController extends BaseController implements ControllerInterface
     }
 
     /*
-     * Author: Robert
+     * Author: Robert lol! :)
      */
     function uploadImagesToServer($fileContainer)
     {
@@ -81,7 +81,7 @@ class ProductController extends BaseController implements ControllerInterface
      */
     public function getFeaturedProducts()
     {
-        return json_encode($this->repository->get(["featured" => true]));
+        return json_encode($this->repository->get(["featured" => "on"]));
     }
 
     /**

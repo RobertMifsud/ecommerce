@@ -13,7 +13,7 @@ class DatabaseService
     /**
      * @var string
      */
-    private $configPath = '../../config/database.php';
+    private $configPath = __DIR__ . '/../../config/database.php';
 
     /**
      * DatabaseService constructor.
@@ -25,7 +25,7 @@ class DatabaseService
         } else {
             $this->config =[
                 'database' => 'ecommerce',
-                'uri'     => 'mongodb://0.0.0.0:27017/ecommerce',
+                'uri'     => 'mongodb://localhost:27017/ecommerce',
                 'options' => [
                 ]
             ];
