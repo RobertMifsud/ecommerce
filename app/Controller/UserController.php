@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Repository\MongoDB;
 use MongoDB\BSON\ObjectID;
+use App\Controller\ProductController;
 
 class UserController extends BaseController implements ControllerInterface
 {
