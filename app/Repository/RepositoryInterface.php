@@ -21,7 +21,7 @@ interface RepositoryInterface
     public function get(
         array $criteria = null,
         array $sort = null,
-        array $fields = null,
+        array $fields = [],
         int $limit = 0,
         int $page = 0
     ): array;
