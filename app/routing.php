@@ -94,8 +94,7 @@ class Router {
                 [
                     "type" => "object_id",
                     "action" => [
-                        "GET" => "read",
-                        "DELETE" => "delete"
+                        "GET" => "getCategoryAndProducts",
                     ]
                 ]
             ]
