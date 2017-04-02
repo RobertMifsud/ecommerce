@@ -4,6 +4,7 @@
     <li><a href="addProduct.php">Add product</a></li>
     <li><a href="#">Edit product</a></li>
     <li><a href="managecategories.php">Manage Categories</a></li>
+    <li><a href="manageorders.php">Manage Orders</a></li>
     <li><a href="#">User Managment</a></li>
 </ul>
 
