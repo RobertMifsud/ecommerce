@@ -75,7 +75,7 @@ class MongoDB implements RepositoryInterface
         // set criteria if none
         $criteria = $criteria ?: [];
 
-        // set sort if none
+        // set sort if none -1 Desc 1 Asc
         $sort = $sort ?: ["_id" => -1];
 
         // set records to skip

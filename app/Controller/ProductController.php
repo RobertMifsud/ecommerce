@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Repository\MongoDB;
+use MongoDB\BSON\ObjectID;
 
 class ProductController extends BaseController implements ControllerInterface
 {
@@ -13,13 +14,28 @@ class ProductController extends BaseController implements ControllerInterface
         $this->repository = new MongoDB("products");
     }
 
+    public function update($_id) {
+        $productName = !empty($_POST['productName']) ? $_POST['productName'] : null;
+        $productDescription = !empty($_POST['productDesc']) ? $_POST['productDesc'] : null;
+        $productPrice = !empty($_POST['productPrice']) ? $_POST['productPrice'] : null;
+        $productFeatured = !empty($_POST['featured']) ? $_POST['featured'] : "off";
+        $productCategory = !empty($_POST['category']) ? new ObjectID($_POST['category']) : null;
+
+        return json_encode($this->repository->update(["_id" => new ObjectID($_id)], ['$set' => [
+            "name" => $productName,
+            "description" => $productDescription,
+            "price" => $productPrice,
+            "featured" => $productFeatured,
+            "category" => $productCategory
+        ]]));
+    }
     public function create()
     {
         $productName = !empty($_POST['productName']) ? $_POST['productName'] : null;
         $productDescription = !empty($_POST['productDesc']) ? $_POST['productDesc'] : null;
         $productPrice = !empty($_POST['productPrice']) ? $_POST['productPrice'] : null;
         $productFeatured = !empty($_POST['featured']) ? $_POST['featured'] : "off";
-        $productCategory = !empty($_POST['category']) ? $_POST['category'] : null;
+        $productCategory = !empty($_POST['category']) ? new ObjectID($_POST['category']) : null;
 
         return json_encode($this->repository->create([
             "name" => $productName,
@@ -96,4 +112,35 @@ class ProductController extends BaseController implements ControllerInterface
         return json_encode($this->repository->get());
     }
 
+    /**
+     * @return string
+     */
+    public function getAtoZProducts()
+    {
+        return json_encode($this->repository->get(null, ["name" => 1]));
+    }
+
+    /**
+     * @return string
+     */
+    public function getZtoAProducts()
+    {
+        return json_encode($this->repository->get(null, ["name" => -1]));
+    }
+
+    /**
+     * @return string
+     */
+    public function getLowtoHighProducts()
+    {
+        return json_encode($this->repository->get(null, ["price" => 1]));
+    }
+
+    /**
+     * @return string
+     */
+    public function getHightoLowProducts()
+    {
+        return json_encode($this->repository->get(null, ["price" => -1]));
+    }
 }

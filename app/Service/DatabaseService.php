@@ -20,16 +20,13 @@ class DatabaseService
      */
     public function __construct()
     {
-        if (is_file($this->configPath)) {
-            $this->config = require_once($this->configPath);
-        } else {
             $this->config =[
                 'database' => 'ecommerce',
                 'uri'     => 'mongodb://localhost:27017/ecommerce',
                 'options' => [
                 ]
             ];
-        }
+
     }
 
     /**

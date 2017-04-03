@@ -16,7 +16,15 @@ class Router {
            "controller" => ShippingMethodController::class,
            "action" => [
                "GET" => "read"
-           ]
+           ],
+            "actions" => [
+                [
+                    "type" => "object_id",
+                    "action" => [
+                        "GET" => "read"
+                    ]
+                ]
+            ]
         ],
         "recommended" => [
           "controller" => UserController::class,
@@ -54,9 +62,21 @@ class Router {
                 ]
             ]
         ],
+        "ship-out" => [
+            "controller" => UserController::class,
+            "actions" => [
+                [
+                    "type" => "object_id",
+                    "action" => [
+                        "POST" => "shipOrder",
+                    ]
+                ]
+            ]
+        ],
         "orders" => [
             "controller" => UserController::class,
             "action" => [
+                "GET" => "read",
                 "POST" => "createUserOrder",
             ],
             "actions" => [
@@ -114,6 +134,7 @@ class Router {
                     "action" => [
                         "GET" => "read",
                         "DELETE" => "delete",
+                        "POST" => "update"
                     ]
                 ],
                 [
@@ -128,6 +149,34 @@ class Router {
                     "value" => "featured",
                     "action" => [
                         "GET" => "getFeaturedProducts"
+                    ]
+                ],
+                [
+                    "type" => "string",
+                    "value" => "a-z",
+                    "action" => [
+                        "GET" => "getAtoZProducts"
+                    ]
+                ],
+                [
+                    "type" => "string",
+                    "value" => "z-a",
+                    "action" => [
+                        "GET" => "getZtoAProducts"
+                    ]
+                ],
+                [
+                    "type" => "string",
+                    "value" => "high-low",
+                    "action" => [
+                        "GET" => "getHightoLowProducts"
+                    ]
+                ],
+                [
+                    "type" => "string",
+                    "value" => "low-high",
+                    "action" => [
+                        "GET" => "getLowtoHighProducts"
                     ]
                 ],
             ]

@@ -49,6 +49,10 @@ class UserController extends BaseController implements ControllerInterface
         return json_encode(["status" => "fail", "user" => ""]);
     }
 
+    public function shipOrder($orderId) {
+        return json_encode($this->repository->update(["orders._id" => new ObjectID($orderId)], ['$set' => ["orders.$.status" => "shipped"]]));
+    }
+
     /**
      * Login
      */
@@ -155,12 +159,11 @@ class UserController extends BaseController implements ControllerInterface
             usort($products, $compare);
 
             $products = array_slice($products, 0, 10, true);
-
             $data = [];
+
             foreach ($products as $product) {
                 $productsController = new ProductController();
-
-                $data[] = json_decode($productsController->read($product["_id"]))[0];
+                $data[] = json_decode($productsController->read($product->product_id))[0];
             }
 
             return json_encode($data);

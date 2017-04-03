@@ -51,7 +51,7 @@ class BaseController implements ControllerInterface
     /**
      * @return mixed
      */
-    public function update()
+    public function update($_id)
     {
         return Exception("Not implemented");
     }
